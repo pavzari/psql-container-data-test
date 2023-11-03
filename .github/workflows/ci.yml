@@ -12,9 +12,8 @@ jobs:
         with:
           python-version: '3.11.1'
 
-      
       - name: Install Requirements
-        run: make requirements
+        run: pip install -r requirements.txt
         
       - name: start the psql container
         run: make up
