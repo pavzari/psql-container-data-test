@@ -1,17 +1,21 @@
 from pg8000 import Connection, InterfaceError, DatabaseError
 
 
-def get_connection():
-    conn = Connection(
-        user="myuser",
-        password="mypassword",
-        database="mydatabase",
-        host="localhost",
-        port=5433,
-        # for both runner and postgres in the same network:
-        # host="postgres",
-        # port = 5433
-    )
+connection_params = {
+    "user": "myuser",
+    "password": "mypassword",
+    "database": "mydatabase",
+    "host": "localhost",
+    "port": 5433,
+}
+
+# for both runner and postgres in the same network:
+# host="postgres",
+# port = 5433
+
+
+def get_connection(connection_params):
+    conn = Connection(**connection_params)
     return conn
 
 
@@ -29,5 +33,5 @@ def get_data(conn):
 
 
 if __name__ == "__main__":
-    conn = get_connection()
+    conn = get_connection(connection_params)
     get_data(conn)

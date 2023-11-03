@@ -18,12 +18,12 @@ jobs:
       - name: start the psql container
         run: make up
 
-      - name: check psql is ready
-        run: docker exec postgres pg_isready
+      # - name: check psql is ready
+      #   run: docker exec postgres pg_isready
         
-      # - name: Sleep for 30 seconds
-      #   run: sleep 20s
-      #   shell: bash
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
 
       - name: run tests agains the psql container
         run: make run-tests
