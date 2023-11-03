@@ -1,0 +1,23 @@
+name: test-db
+on: push
+jobs:
+  run-ci-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.1'
+
+      
+      - name: Install Requirements
+        run: make requirements
+        
+      - name: start the psql container
+        run: make up
+
+      - name: run tests agains the psql container
+        run: make run-tests
