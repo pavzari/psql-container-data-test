@@ -19,7 +19,7 @@ jobs:
         run: make up
 
       - name: check psql is ready
-        run: docker exec -ti postgres pg_isready
+        run: docker exec postgres pg_isready
         
       # - name: Sleep for 30 seconds
       #   run: sleep 20s
