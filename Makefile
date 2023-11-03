@@ -13,7 +13,7 @@ shell:
 run-main:
 	docker exec runner python /code/src/main.py
 
-run-test:
+runner-test:
 	docker exec runner pytest /code/test
 
 
