@@ -16,10 +16,10 @@ jobs:
         run: pip install -r requirements.txt
         
       - name: start the psql container
-        run: |
-          make up
-          docker exec -ti postgres bash 
-          pg_isready
+        run: make up
+
+      - name: check psql is ready
+        run: docker exec -ti postgres pg_isready
         
       # - name: Sleep for 30 seconds
       #   run: sleep 20s
