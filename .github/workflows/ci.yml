@@ -17,9 +17,9 @@ jobs:
         
       - name: start the psql container
         run: |
-        make up
-        docker exec -ti postgres bash 
-        pg_isready
+          make up
+          docker exec -ti postgres bash 
+          pg_isready
         
       # - name: Sleep for 30 seconds
       #   run: sleep 20s
