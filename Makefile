@@ -5,7 +5,7 @@ down:
 	docker compose down 
 
 run-tests:
-	pytest test/
+	export PYTHONPATH=${PWD} && pytest test/
 
 shell:
 	docker exec -ti runner bash
