@@ -19,7 +19,7 @@ jobs:
         run: make up
       
       - name: Sleep for 30 seconds
-        run: sleep 30s
+        run: sleep 20s
         shell: bash
 
       - name: run tests agains the psql container
