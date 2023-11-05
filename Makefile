@@ -7,10 +7,10 @@ down:
 run-tests:
 	export PYTHONPATH=${PWD} && pytest test/
 
-shell:
-	docker exec -ti runner bash
+runner-shell:
+	docker exec -it runner bash
 
-run-main:
+runner-main:
 	docker exec runner python /code/src/main.py
 
 runner-test:

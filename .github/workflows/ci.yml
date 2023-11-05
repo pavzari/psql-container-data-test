@@ -4,18 +4,18 @@ jobs:
   run-ci-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11.1'
 
-      - name: Install Requirements
+      - name: Install requirements
         run: pip install -r requirements.txt
         
-      - name: start the psql container
+      - name: Start psql container
         run: make up
 
       # - name: check psql is ready
@@ -25,6 +25,6 @@ jobs:
         run: sleep 10s
         shell: bash
 
-      - name: run tests agains the psql container
+      - name: Run tests against the psql container
         run: make run-tests
 

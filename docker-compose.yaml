@@ -1,16 +1,24 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
+    # image: postgres:latest
+    image: postgres:alpine
     container_name: postgres
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: totesys #testdb
+      POSTGRES_USER: totesys #testuser
+      POSTGRES_PASSWORD: totesys
     ports:
       - "5433:5432"
     volumes:
+        # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
         - ./db:/docker-entrypoint-initdb.d
+  #   healthcheck:
+  #       test: ["CMD", "pg_isready", "-U", "totesys"]
+  #       interval: 5s
+  #       retries: 5
+  #   restart: always
+
   # runner:
   #   container_name: runner
   #   build:
